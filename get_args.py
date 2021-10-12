@@ -28,7 +28,7 @@ def get_args():
     group.add_argument('-lstm_combine', default='add',
                        choices=['add', 'concat'], type=str,
                        help='the way to combine bidirectional lstm outputs')
-    group.add_argument('-n_linear', default=1, type=int,
+    group.add_argument('-n_linear', default=2, type=int,
                        help='number of linear layers after lstm')
     group.add_argument('-linear_dropout', default=0.5, type=float,
                        help='dropout of the penultimate layer')
@@ -38,14 +38,14 @@ def get_args():
     group = parser.add_argument_group('Training Specs')
     group.add_argument('-seed', default=0, type=int, help='random seed')
     group.add_argument('-batch_size', default=10, type=int, help='batch size')
-    group.add_argument('-epochs', default=100, type=int,
+    group.add_argument('-epochs', default=10, type=int,
                        help='number of epochs to train the model')
     group.add_argument('-lr', default=0.001, type=float, help='learning rate')
     group.add_argument('-weight_decay', default=1e-5, type=float,
                        help='weight decay')
 
     group = parser.add_argument_group('Files')
-    group.add_argument('-data_dir', default='data/re_semeval/', type=str,
+    group.add_argument('-data_dir', default='/home/niuhao/project/v2_ABSA_baseline/RE/att_BLSTM/data/re_semeval/', type=str,
                        help='the directory for data files')
     group.add_argument('-train_fname', default='train.csv', type=str,
                        help='training file name')

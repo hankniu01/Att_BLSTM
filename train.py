@@ -77,13 +77,6 @@ def bookkeep(predictor, validator, tester, args, INPUT_field):
 
     predictor.pred_sent(INPUT_field)
 
-    save_model_fname = validator.save_model_fname + '.e{:02d}.loss{:.4f}.torch'.format(
-        validator.best_epoch, validator.best_loss)
-    cmd = 'cp {} {}'.format(validator.save_model_fname, save_model_fname)
-    shell(cmd)
-
-    clean_up(args)
-
 
 def run(proc_id, n_gpus, devices, args):
     set_seed(args.seed)
